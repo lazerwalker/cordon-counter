@@ -1,0 +1,13 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#time {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.url {
+  color: blue;
+  text-decoration: underline;
+}
