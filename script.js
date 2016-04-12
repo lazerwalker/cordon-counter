@@ -2,7 +2,7 @@ var timeout;
 var interval = 1000;
 
 var $waiting = document.getElementById('waiting')
-var $active = document.getElementById('active')
+var $live = document.getElementById('live')
 
 var $minute1 = document.getElementById('minute1')
 var $minute2 = document.getElementById('minute2')
@@ -19,6 +19,7 @@ function nextGameTime() {
   } else if (currentMinutes < 40) {
     next.setMinutes(40);
   } else {
+    next.setHours(next.getHours() + 1)
     next.setMinutes(0);
   }
 
@@ -36,15 +37,15 @@ function countdown() {
 
   if (minutes >= 15) { // Games are 5 minutes, so the current game is still active
     $waiting.style.display = 'none';
-    $active.style.display = 'block';
+    $live.style.display = 'block';
   } else {
     $waiting.style.display = 'block';
-    $active.style.display = 'none';
+    $live.style.display = 'none';
 
     $minute1.innerText = Math.floor(minutes / 10)
-    $minute2.innerText = minutes % 10
+    $minute2.innerText = Math.floor(minutes % 10)
     $seconds1.innerText = Math.floor(seconds / 10)
-    $seconds2.innerText = seconds % 10
+    $seconds2.innerText = Math.floor(seconds % 10)
   }
 
   setTimeout(countdown, interval)
